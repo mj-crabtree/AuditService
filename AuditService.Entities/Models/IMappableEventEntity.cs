@@ -1,6 +1,5 @@
 namespace AuditService.Entities.Models;
 
-public class TrackedFileDto
+public interface IMappableEventEntity
 {
-    
 }

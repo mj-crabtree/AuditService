@@ -1,0 +1,15 @@
+GET http://localhost:5215/api/events/54865E4D-FFE5-4481-9D00-32DF72A8159D
+Accept: application/json
+
+###
+POST http://localhost:5215/api/events
+Content-Type: application/json
+
+{
+  "EventType" : "FileCreated",
+  "OperationTimeStamp" : "2024-03-05T15:25:45",
+  "TrackedFileId" : "6d6f9278-59a0-4a47-b46f-8bb0786e3c32",
+  "TrackedUserId": "3a5811f1-8e7d-4c0a-b34c-9d9f2e15f3dc"
+}
+
+

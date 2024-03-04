@@ -6,6 +6,5 @@ public class TrackedUserProfile : Profile
 {
     public TrackedUserProfile()
     {
-        
     }
 }

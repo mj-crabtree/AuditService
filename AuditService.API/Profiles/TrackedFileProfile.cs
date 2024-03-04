@@ -6,6 +6,5 @@ public class TrackedFileProfile : Profile
 {
     public TrackedFileProfile()
     {
-        
     }
 }
