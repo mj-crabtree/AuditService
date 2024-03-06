@@ -1,6 +1,6 @@
 using AuditService.Entities.Models;
 
-namespace AuditService.Services;
+namespace AuditService.Services.EventServices;
 
 public interface IEventMappingService<TEntity, TDto>
 {

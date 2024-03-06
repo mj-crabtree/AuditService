@@ -2,16 +2,17 @@ using AuditService.Entities.Entities.AuditEvents;
 using AuditService.Entities.Models;
 using AuditService.Entities.Models.OutgoingDtos.AuditEventDtos;
 
-namespace AuditService.Services;
+namespace AuditService.Services.EventServices;
 
 public class AuditEventService : IAuditEventService
 {
-    private readonly ITrackedFileService _trackedFileService;
-    private readonly ITrackedUserService _trackedUserService;
     private readonly IAuditEventBuilder _auditEventBuilder;
     private readonly IEventMappingService<AuditEvent, AuditEventDto> _eventMappingService;
+    private readonly ITrackedFileService _trackedFileService;
+    private readonly ITrackedUserService _trackedUserService;
 
-    public AuditEventService(ITrackedFileService trackedFileService, ITrackedUserService trackedUserService, IAuditEventBuilder auditEventBuilder, IEventMappingService<AuditEvent, AuditEventDto> eventMappingService)
+    public AuditEventService(ITrackedFileService trackedFileService, ITrackedUserService trackedUserService,
+        IAuditEventBuilder auditEventBuilder, IEventMappingService<AuditEvent, AuditEventDto> eventMappingService)
     {
         _trackedFileService = trackedFileService ?? throw new ArgumentNullException(nameof(trackedFileService));
         _trackedUserService = trackedUserService ?? throw new ArgumentNullException(nameof(trackedUserService));
@@ -25,6 +26,7 @@ public class AuditEventService : IAuditEventService
         {
             throw new ArgumentNullException(nameof(newEventDto));
         }
+
         var entity = _eventMappingService.MapDtoToEntity(newEventDto);
         var preparedEvent = BuildAuditEvent(entity);
         return preparedEvent;
@@ -36,7 +38,7 @@ public class AuditEventService : IAuditEventService
         {
             throw new ArgumentNullException(nameof(auditEvent));
         }
-        
+
         var dtoToReturn = _eventMappingService.MapEntityToDto(auditEvent);
         return dtoToReturn;
     }
@@ -63,7 +65,7 @@ public class AuditEventService : IAuditEventService
             .WithTrackedFile(file)
             .WithTrackedUser(user)
             .Build();
-        
+
         return eventToReturn;
     }
 }

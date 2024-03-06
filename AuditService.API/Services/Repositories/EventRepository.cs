@@ -1,5 +1,4 @@
 using AuditService.DbContexts;
-using AuditService.Entities.Entities;
 using AuditService.Entities.Entities.AuditEvents;
 using AuditService.ResourceParameters;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +24,7 @@ public class EventRepository : IEventRepository
         {
             throw new ArgumentNullException(nameof(auditEvent));
         }
-        
+
         auditEvent.Id = Guid.NewGuid();
         _context.AuditEvents.Add(auditEvent);
     }

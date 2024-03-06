@@ -4,7 +4,7 @@ using AuditService.Entities.Models;
 using AuditService.Entities.Models.OutgoingDtos.AuditEventDtos;
 using AutoMapper;
 
-namespace AuditService.Services;
+namespace AuditService.Services.EventServices;
 
 public class EventMappingService : IEventMappingService<AuditEvent, AuditEventDto>
 {

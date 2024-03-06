@@ -1,6 +1,5 @@
 using AuditService.DbContexts;
 using AuditService.Entities.Entities;
-using SQLitePCL;
 
 namespace AuditService.Services;
 
@@ -10,7 +9,7 @@ public interface ITrackedUserService
     TrackedUser GetOrCreateUser(Guid userId);
 }
 
-class TrackedUserService : ITrackedUserService
+public class TrackedUserService : ITrackedUserService
 {
     private readonly AuditDbContext _context;
 

@@ -2,7 +2,7 @@ using AuditService.Entities.Entities.AuditEvents;
 using AuditService.Entities.Models;
 using AuditService.Entities.Models.OutgoingDtos.AuditEventDtos;
 
-namespace AuditService.Services;
+namespace AuditService.Services.EventServices;
 
 public interface IAuditEventService
 {

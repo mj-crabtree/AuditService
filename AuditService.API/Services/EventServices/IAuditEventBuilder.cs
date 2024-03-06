@@ -1,7 +1,7 @@
 using AuditService.Entities.Entities;
 using AuditService.Entities.Entities.AuditEvents;
 
-namespace AuditService.Services;
+namespace AuditService.Services.EventServices;
 
 public interface IAuditEventBuilder
 {
@@ -21,7 +21,7 @@ public class AuditEventBuilder : IAuditEventBuilder
         _auditEvent = auditEvent;
         return this;
     }
-    
+
     public AuditEventBuilder WithTrackedFile(TrackedFile file)
     {
         _auditEvent.TrackedFile = file;
@@ -42,7 +42,5 @@ public class AuditEventBuilder : IAuditEventBuilder
 
     public void Reset()
     {
-        
     }
 }
-

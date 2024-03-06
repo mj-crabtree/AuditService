@@ -1,7 +1,7 @@
 using AuditService.Entities.Models.IncomingDtos;
 using AuditService.Entities.Models.OutgoingDtos.AuditEventDtos;
 using AuditService.ResourceParameters;
-using AuditService.Services;
+using AuditService.Services.EventServices;
 using AuditService.Services.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,8 +11,8 @@ namespace AuditService.Controllers;
 [Route("/api/events")]
 public class EventController : ControllerBase
 {
-    private readonly IEventRepository _repository;
     private readonly IAuditEventService _auditEventService;
+    private readonly IEventRepository _repository;
 
     public EventController(IEventRepository repository, IAuditEventService auditEventService)
     {
@@ -46,7 +46,6 @@ public class EventController : ControllerBase
     [HttpPost(Name = "CreateEvent")]
     public async Task<ActionResult<AuditEventDto>> CreateEvent(AuditEventCreationDto eventDto)
     {
-        // todo: handle new files and users with a file service and a user service respectively.
         var newEvent = _auditEventService.CreateNewEvent(eventDto);
         _repository.AddAuditEvent(newEvent);
         await _repository.SaveAsync();

@@ -10,7 +10,7 @@ public interface ITrackedFileService
     TrackedFile GetOrCreateFile(Guid fileId);
 }
 
-class TrackedFileService : ITrackedFileService
+public class TrackedFileService : ITrackedFileService
 {
     private readonly AuditDbContext _context;
 

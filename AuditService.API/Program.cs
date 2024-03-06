@@ -3,6 +3,7 @@ using AuditService.Entities.Entities.AuditEvents;
 using AuditService.Entities.Models.OutgoingDtos.AuditEventDtos;
 using AuditService.ModelBinders;
 using AuditService.Services;
+using AuditService.Services.EventServices;
 using AuditService.Services.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
