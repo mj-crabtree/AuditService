@@ -17,6 +17,22 @@ Content-Type: application/json
   "TrackedUserId" : "3a5811f1-8e7d-4c0a-b34c-9d9f2e15f3dc"
 }
 
+###
+
+POST http://localhost:5050/api/events
+Content-Type: application/json
+
+{
+  "EventType" : "FileClassified",
+  "OperationTimeStamp" : "2024-03-08T14:25:45",
+  "TrackedFileId" : "6d6f9278-59a0-4a47-b46f-8bb0786e3c32",
+  "TrackedUserId" : "3a5811f1-8e7d-4c0a-b34c-9d9f2e15f3dc",
+  "OldClassificationTier" : "",
+  "NewClassificationTier" : "secret",
+  "SuccessfulClassification" : true,
+  "CurrentClassification" : "secret"
+}
+
 ### Local Requests
 GET http://localhost:5215/api/events/
 Accept: application/json
@@ -34,4 +50,38 @@ Content-Type: application/json
   "OperationTimeStamp" : "2024-03-05T15:25:45",
   "TrackedFileId" : "6d6f9278-59a0-4a47-b46f-8bb0786e3c32",
   "TrackedUserId" : "3a5811f1-8e7d-4c0a-b34c-9d9f2e15f3dc"
+}
+
+###
+POST http://localhost:5215/api/events
+Content-Type: application/json
+
+{
+  "EventType" : "FileClassified",
+  "OperationTimeStamp" : "2024-03-08T14:25:45",
+  "TrackedFileId" : "6d6f9278-59a0-4a47-b46f-8bb0786e3c32",
+  "TrackedUserId" : "3a5811f1-8e7d-4c0a-b34c-9d9f2e15f3dc",
+  "OldClassificationTier" : "new file - not applicable",
+  "NewClassificationTier" : "secret",
+  "SuccessfulClassification" : true,
+  "CurrentClassification" : "secret"
+}
+
+###
+GET http://localhost:5215/api/events?fileId=6d6f9278-59a0-4a47-b46f-8bb0786e3c32
+Accept: application/json
+
+###
+POST http://localhost:5215/api/events
+Content-Type: application/json
+
+{
+  "EventType" : "FileClassified",
+  "OperationTimeStamp" : "2024-03-08T14:25:45",
+  "TrackedFileId" : "6d6f9278-59a0-4a47-b46f-8bb0786e3c32",
+  "TrackedUserId" : "3a5811f1-8e7d-4c0a-b34c-9d9f2e15f3dc",
+  "OldClassificationTier" : "secret",
+  "NewClassificationTier" : "top secret",
+  "SuccessfulClassification" : true,
+  "CurrentClassification" : "top secret"
 }

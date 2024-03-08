@@ -11,7 +11,8 @@ public class AuditEventProfile : Profile
     {
         CreateMap<FileCreatedEventCreationDto, FileCreatedAuditEvent>()
             .ForMember(dest => dest.TimeStamp, opt => opt.MapFrom(_ => DateTime.Now));
-        CreateMap<FileClassifiedEventCreationDto, FileClassifiedAuditEvent>();
+        CreateMap<FileClassifiedEventCreationDto, FileClassifiedAuditEvent>()
+            .ForMember(dest => dest.TimeStamp, opt => opt.MapFrom(_ => DateTime.Now));;
 
         CreateMap<FileCreatedAuditEvent, FileCreatedAuditEventDto>();
         CreateMap<FileClassifiedAuditEvent, FileClassifiedAuditEventDto>();
