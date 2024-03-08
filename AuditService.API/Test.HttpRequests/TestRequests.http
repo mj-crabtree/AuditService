@@ -3,11 +3,11 @@ GET http://localhost:5050/api/events/
 Accept: application/json
 
 ###
-GET http://localhost:5000/api/events/54865E4D-FFE5-4481-9D00-32DF72A8159D
+GET http://localhost:5050/api/events/1db29b16-d3fb-4d4e-b3ab-412036bc2ccd
 Accept: application/json
 
 ###
-POST http://localhost:5000/api/events
+POST http://localhost:5050/api/events
 Content-Type: application/json
 
 {

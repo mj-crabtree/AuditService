@@ -55,6 +55,12 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = app.Services.GetRequiredService<AuditDbContext>();
+    context.Database.EnsureCreated();
+}
+
 app.MapControllers();
 app.UseHttpsRedirection();
 

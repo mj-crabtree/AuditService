@@ -7,8 +7,6 @@ COPY AuditService.API/*.csproj ./AuditService.API/
 COPY AuditService.Entities/*.csproj ./AuditService.Entities/
 RUN dotnet restore
 
-RUN dotnet tool install --global dotnet-ef
-
 COPY AuditService.API/. ./AuditService.API/
 COPY AuditService.Entities/. ./AuditService.Entities
 WORKDIR /app/AuditService.API
