@@ -16,5 +16,7 @@ public class AuditEventProfile : Profile
 
         CreateMap<FileCreatedAuditEvent, FileCreatedAuditEventDto>();
         CreateMap<FileClassifiedAuditEvent, FileClassifiedAuditEventDto>();
+        CreateMap<FileSharedAuditEvent, FileSharedAuditEventDto>();
+        CreateMap<FileDownloadedAuditEvent, FileDownloadedAuditEventDto>();
     }
 }

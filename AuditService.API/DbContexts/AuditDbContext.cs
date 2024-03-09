@@ -20,6 +20,8 @@ public class AuditDbContext : DbContext
             .HasDiscriminator<string>("event_type")
             .HasValue<FileCreatedAuditEvent>("file_created")
             .HasValue<FileSharedAuditEvent>("file_shared")
-            .HasValue<FileClassifiedAuditEvent>("file_classified");
+            .HasValue<FileClassifiedAuditEvent>("file_classified")
+            .HasValue<FileSharedAuditEvent>("file_shared")
+            .HasValue<FileDownloadedAuditEvent>("file_downloaded");
     }
 }
